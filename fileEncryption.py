@@ -1,25 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # File Encryption Lab
 # CECS 378
 # Alexander Fielding
