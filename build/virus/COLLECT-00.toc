@@ -1,0 +1,107 @@
+([('virus.exe',
+   'C:\\Users\\Phuc Nguyen\\Desktop\\FinalTesting\\build\\virus\\virus.exe',
+   'EXECUTABLE'),
+  ('virus.exe.manifest',
+   'C:\\Users\\Phuc '
+   'Nguyen\\Desktop\\FinalTesting\\build\\virus\\virus.exe.manifest',
+   'BINARY'),
+  ('VCRUNTIME140.dll',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('python37.dll',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\python37.dll',
+   'BINARY'),
+  ('_ssl',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('pyexpat',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\pyexpat.pyd',
+   'EXTENSION'),
+  ('_hashlib',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_hashlib.pyd',
+   'EXTENSION'),
+  ('_lzma',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_socket',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_socket.pyd',
+   'EXTENSION'),
+  ('unicodedata',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\unicodedata.pyd',
+   'EXTENSION'),
+  ('_bz2',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_bz2.pyd',
+   'EXTENSION'),
+  ('select',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\select.pyd',
+   'EXTENSION'),
+  ('_cffi_backend',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\_cffi_backend.cp37-win32.pyd',
+   'EXTENSION'),
+  ('cryptography.hazmat.bindings._openssl',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography\\hazmat\\bindings\\_openssl.cp37-win32.pyd',
+   'EXTENSION'),
+  ('cryptography.hazmat.bindings._constant_time',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography\\hazmat\\bindings\\_constant_time.cp37-win32.pyd',
+   'EXTENSION'),
+  ('_ctypes',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_ctypes.pyd',
+   'EXTENSION'),
+  ('_contextvars',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_contextvars.pyd',
+   'EXTENSION'),
+  ('_decimal',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\_decimal.pyd',
+   'EXTENSION'),
+  ('cryptography.hazmat.bindings._padding',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography\\hazmat\\bindings\\_padding.cp37-win32.pyd',
+   'EXTENSION'),
+  ('libcrypto-1_1.dll',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\libcrypto-1_1.dll',
+   'BINARY'),
+  ('libssl-1_1.dll',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\DLLs\\libssl-1_1.dll',
+   'BINARY'),
+  ('base_library.zip',
+   'C:\\Users\\Phuc '
+   'Nguyen\\Desktop\\FinalTesting\\build\\virus\\base_library.zip',
+   'DATA'),
+  ('cryptography-2.3.1-py3.7.egg-info\\INSTALLER',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography-2.3.1.dist-info\\INSTALLER',
+   'DATA'),
+  ('cryptography-2.3.1-py3.7.egg-info\\RECORD',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography-2.3.1.dist-info\\RECORD',
+   'DATA'),
+  ('cryptography-2.3.1-py3.7.egg-info\\METADATA',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography-2.3.1.dist-info\\METADATA',
+   'DATA'),
+  ('cryptography-2.3.1-py3.7.egg-info\\WHEEL',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography-2.3.1.dist-info\\WHEEL',
+   'DATA'),
+  ('cryptography-2.3.1-py3.7.egg-info\\top_level.txt',
+   'c:\\users\\phuc '
+   'nguyen\\appdata\\local\\programs\\python\\python37-32\\lib\\site-packages\\cryptography-2.3.1.dist-info\\top_level.txt',
+   'DATA')],)

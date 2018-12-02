@@ -19,56 +19,43 @@ from pathlib import Path #used to get file ext
 Making a VACCINE for Ransomeware that decrypt all the encrypted raw data
 '''
 
-print("RSAEncrypt and RSADecrypt")
 priv_key = "/Users/Phuc Nguyen/Desktop/FinalTesting/SHREKISLOVESHREKISLIFE555/privateKey.pem"
 dir_path = "/Users/Phuc Nguyen/Desktop/Testing"
-
+print("RSAEncrypt and RSADecrypt")
+# This is the file where the virus will infect
+# Making this path(tester folder) the current working directory 
 os.chdir(dir_path)
 cwd = os.getcwd()
-print("Current directory:" + cwd)
+
 # Testing
-pub_key = "/Users/Phuc Nguyen/Desktop/FinalTesting/SHREKISLOVESHREKISLIFE555/publicKey.pem"
-'''
-file = "/Users/Phuc Nguyen/Desktop/Testing/message.txt"
-RSA, C, IV, ext, tag= MyRSAencrypt(file, pub_key)
-plainText = MyRSAdecrypt(RSA, C, IV, ext, priv_key, tag)
-print(plainText)
-'''
+
 jason={}
 
 for root, dirs, files in os.walk(cwd):
-    for file in files:
-        if file.endswith(".json"):
-            print("Decrypt all file:", file)
-            
-            with open(file, 'r') as f:
+    for filename in files:
+        if filename.endswith(".json"):
+            print("Decrypting ", filename)
+            # change directory to root in order to start from root and acess every folder inside the path
+            os.chdir(root)
+            # Reading the .JSON file 
+            with open(filename, 'r') as f:
                 json_data = f.read()
-                
-            #print("Decrypt json data:",json_data)    
-            json_obj = json.loads(json_data)
-            #print(json_obj["RSACipher"])
-            print("\n\n\n")
-            rsa   = base64.b64decode(json_obj["RSA"].encode('ascii')) 
-            #print("decrypt rsa =",rsa)
+            # load the data (RSACipher, ...) from the file    
+            json_object = json.loads(json_data)
+            # Decoding each object with base 64 and then encode with ascii ( opposite with virus)
+            RSACipher   = base64.b64decode(json_obj["RSACipher"].encode('ascii'))       
             C = base64.b64decode(json_obj["C"].encode('ascii')) 
-            #print("decrypt C =",C)
-            
-            tag = base64.b64decode(json_obj["Tag"].encode('ascii')) 
-            #print("decrypt tag =",tag)
+            tag = base64.b64decode(json_obj["tag"].encode('ascii')) 
             IV  = base64.b64decode(json_obj["IV"].encode('ascii')) 
-            #print("decrypt IV =",IV)
-            ext = json_obj["Ext"]
-            #print("ext =",ext)
-            plaintext = MyRSAdecrypt(file,rsa, C, IV, ext, priv_key, tag)
-            #def my_RSA_decrypt(filepath, rsa_cipher, C, IV, hmac_tag, ext, rsa_privatekey_filepath):
+            ext = json_obj["ext"]
+
+            # Then, decrypt it using the data that returned from encrypted (virus)
+            plaintext = MyRSAdecrypt(RSACipher, C, IV, ext, priv_key, tag)
             #print(plaintext)
-            
-            #file_path = "FILE_" + str(file_count) + ext
-            #file_count += 1
+            # Write the original message into the original file with original extension 
             with open(file + ext, 'w') as outfile: #Writes to json
                 #file_out = open(file_path, "wb")
                 outfile.write(plaintext)
                 outfile.close()
 
-            #os.remove(file)
-        
+
