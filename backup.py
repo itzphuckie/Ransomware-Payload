@@ -165,3 +165,113 @@ def MyRSAdecrypt (RSACipher, C, IV, ext, RSA_Privatekey_filepath, tag):
     EncKey = key[0:keysize]
     HMACKey = key[len(EncKey):]
     MyFileDecryptMAC(IV, EncKey, ext, HMACKey, tag) #decrypt the message using decrypted key
+
+# Main
+
+# 1. Testing the Myencrypt and Mydecrypt method by encrypt a message then decrypt and compare if the boolean return true for matching plaintext
+while(user_input != 6):
+
+    print(MAIN_MENU)
+
+    user_input = int(input("Enter a number to execute an operation from above" + '\n'))
+
+    if(user_input == 1):
+        encKey = os.urandom(keysize) # creating an encrypt key that is 32 bytes
+        macKey = os.urandom(keysize) # creating mac key that is also 32 bytes
+
+        msg = input("Enter the message you want to encrypt" + '\n')
+        bytemsg = str.encode(msg)
+        print("Plain Text:", msg)
+        # encryption
+        (CipherText,iv,tag) = MyencryptMAC(bytemsg, encKey, macKey)
+        print("Cipher Text:", CipherText)
+        print("IV:", iv)
+        print("Tag:", tag)
+        # Decryption
+        print("Decrypting ....")
+        pt = MydecryptMAC(CipherText,encKey, iv,tag,macKey)
+        #bytept = decode(pt)
+        print("Decrypted Message:", pt)
+        print('\n')
+
+    elif(user_input == 2):
+
+        filepath = input("Enter the filepath from the desktop you want to encrypt" + "\n")
+
+        #encrypting the message to a filepath.encrypt
+        (ciphertext, iv, encKey, tag, macKey, ext) = MyFileEncryptMAC(filepath)
+        #decrypting
+        filepath = filepath + ext
+        MyFileDecryptMAC(filepath, encKey, iv,tag,macKey)
+
+    elif(user_input == 3):
+        # If ther ear NO key.PEM created yet, we will go ahead and create a new set of keys and store it in the directory "keys"
+        if(os.path.exists('./SHREKISLOVESHREKISLIFE555/publicKey.pem') == False):
+            # generate a public and private key using the generate function but not .PEM file yet
+            publicKey, privateKey = generateKeyPair()
+
+            #Creating the privateKey.PEM file format - base64 format w/ delimiters
+            # Using private_bytes() to serialize the key that we've loaded / generated
+            # with out having to encrypt ( we used no encryption)
+            privatePem = privateKey.private_bytes(
+				encoding=serialization.Encoding.PEM,
+				format=serialization.PrivateFormat.TraditionalOpenSSL,
+				encryption_algorithm=serialization.NoEncryption()
+            )
+
+            #Creating the publicKey.PEM file, serialize tje public key using public_bytes
+            publicPem = publicKey.public_bytes(
+				encoding=serialization.Encoding.PEM,
+				format=serialization.PublicFormat.SubjectPublicKeyInfo
+            )
+            # Making a folder/directory called "keys" to store both private/public keys
+            os.makedirs('./SHREKISLOVESHREKISLIFE555')
+            privateFile = open ("SHREKISLOVESHREKISLIFE555/privateKey.pem", "wb") # Write private keys to file as binary
+            privateFile.write(privatePem)
+            privateFile.close()
+
+            publicFile = open ("SHREKISLOVESHREKISLIFE555/publicKey.pem", "wb") #Writes public keys to file as binary
+            publicFile.write(publicPem)
+            publicFile.close()
+            print("Private Key & Public Key are created.")
+    elif(user_input == 4):
+        print("RSAEncrypt and RSADecrypt")
+        file_list = os.listdir()
+        js={}
+
+        if "SHREKISLOVESHREKISLIFE555" in file_list:
+            file_list.remove("SHREKISLOVESHREKISLIFE555")
+
+        if ".git" in file_list:
+            file_list.remove(".git")
+
+        if ".DS_Store" in file_list:
+            file_list.remove(".DS_Store")
+
+
+        for file_name in file_list:
+            print("Encrypting " + file_name + "...")
+            RSACipher, C, IV, ext, tag = MyRSAencrypt(file_name, "SHREKISLOVESHREKISLIFE555/publicKey.pem")
+
+            fname = os.path.splitext(str(file_name))[0]
+            j = {}
+            j[fname] = []
+            j[fname].append({
+
+		"RSACipher": RSACipher.decode('latin-1'),
+		"C": C.decode('latin-1'),
+		"IV": IV.decode('latin-1'),
+		"ext": ext,
+		"tag": tag.decode('latin-1')
+		})
+            js.update(j)
+            #os.remove(file_name)
+
+        with open('data.json', 'w') as outfile: #Writes to json
+            json.dump(js, outfile, indent=4)
+            outfile.close()
+
+    elif(user_input == 5):
+        break;
+    else:
+        print("         Invalid input")
